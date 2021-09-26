@@ -56,13 +56,25 @@ function guardaryeditar(e) {
 }
 
 $(document).on('click', '#btn_nuevo', () => {
+    $('#prod_id').val("");
+    $('#prod_nom').val("");
+    $('#prod_desc').val("");
     $('#mdlTitulo').html('Nuevo Registro');
     $('#modal_producto').modal('show');
 })
 
 
 function editar(prod_id) {
-    console.log(prod_id);
+    $('#mdlTitulo').html('Editar Registro');
+
+    $.post('../../controllers/productos.php?op=mostrar', {prod_id}, function(data){
+        data = JSON.parse(data);
+        $('#prod_id').val(data.prod_id);
+        $('#prod_nom').val(data.prod_nom);
+        $('#prod_desc').val(data.prod_desc);
+    })
+
+    $('#modal_producto').modal('show');
 }
 
 function eliminar(prod_id) {

@@ -16,6 +16,11 @@
                         <input type="text" name="prod_nom" class="form-control" id="prod_nom" required>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="prod_nom" class="form-label">Nombre Producto</label>
+                        <textarea type="text" name="prod_desc" placeholder="Agregar descripcion" class="form-control" id="prod_desc" required></textarea>
+                    </div>
+
 
                 </div>
                 <div class="modal-footer">

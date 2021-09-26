@@ -41,6 +41,7 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th>Descripcion</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
