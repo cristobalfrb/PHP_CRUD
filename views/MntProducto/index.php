@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="../../public/css/datatables.bootstrap5.min.css">
     <link rel="stylesheet" href="../../public/css/buttons.dataTables.min.css">
     <title>Crud - Productos</title>
@@ -51,6 +51,10 @@
         <div class="card">
             <h5 class="card-header">Lista de Productos</h5>
             <div class="card-body">
+
+                <button class="btn btn-primary mb-3" id="btn_nuevo">Nuevo Registro</button>
+
+
                 <table id="producto_data" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -75,9 +79,9 @@
     <script src="../../public/js/jquery.js"></script>
     <script src="../../public/js/datatables.min.js"></script>
     <script src="../../public/js/datatables.bootstrap5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
-    
+
     <!-- LIBRERIAS PARA BOTONES DE EXPORT -->
 
     <script src="../../public/js/dataTables.buttons.min.js"></script>
@@ -85,9 +89,18 @@
     <script src="../../public/js/pdfmake.min.js"></script>
     <script src="../../public/js/vfs_fonts.js"></script>
     <script src="../../public/js/buttons.html5.min.js"></script>
-    
+
     <script src="https://kit.fontawesome.com/7225277ba0.js" crossorigin="anonymous"></script>
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script src="./mntproducto.js"></script>
+
+    <?php
+
+    require_once('./modalMntProducto.php');
+
+    ?>
 </body>
 
 </html>

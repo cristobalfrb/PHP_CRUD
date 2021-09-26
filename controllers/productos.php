@@ -15,7 +15,7 @@ switch($_GET['op']){
             $sub_array = array();
             $sub_array[] = $row["prod_nom"];
             $sub_array[] = '<button type="button" onClick="editar('.$row['prod_id'].');" id="'.$row['prod_id'].'" class="btn btn-outline-primary btn-icon"> <div><i class="fa fa-edit"></i></div> </button>';
-            $sub_array[] = '<button type="button" onClick="editar('.$row['prod_id'].');" id="'.$row['prod_id'].'" class="btn btn-outline-danger btn-icon"> <div><i class="fa fa-trash"></i></div> </button>';
+            $sub_array[] = '<button type="button" onClick="eliminar('.$row['prod_id'].');" id="'.$row['prod_id'].'" class="btn btn-outline-danger btn-icon"> <div><i class="fa fa-trash"></i></div> </button>';
             $data[] = $sub_array;
         }
         $results = array(
@@ -26,6 +26,33 @@ switch($_GET['op']){
         );
         echo json_encode($results);
         break;
-}
+
+        case 'guardaryeditar':
+            $datos = $producto->get_productos_id($_POST['prod_id']);
+            if(empty($_POST['prod_id'])){
+                if(is_array($datos) == true && count($datos) == 0){
+                    $producto->insertar_producto($_POST['prod_nom']);
+                }
+            }else{
+                $producto->actualizar_producto($_POST['prod_id'], $_POST['prod_nom']);
+            }
+            break;
+        case 'mostrar':
+            $datos = $producto->get_productos_id($_POST['prod_id']);
+            if(is_array($datos) == true && count($datos) > 0){
+                foreach($datos as $row){
+                    $output["prod_id"] = $row["prod_id"];
+                    $output["prod_nom"] = $row["prod_nom"];
+                }
+            }
+            break;
+        case 'eliminar':
+            $prod_id = $_POST['prod_id'];
+            $producto->eliminar_producto($prod_id);
+            break;
+    }
+
+    
+
 
 ?>

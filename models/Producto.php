@@ -10,8 +10,8 @@ class Producto extends Conectar{
         $sql = "SELECT * FROM tm_productos WHERE estado = 1";
         $sql = $conectar->prepare($sql);
         $sql->execute();
-
-        return $resultado = $sql->fetchAll();
+        $resultado = $sql->fetchAll();
+        return $resultado;
 
     } // fin de la funcion
     
@@ -31,17 +31,18 @@ class Producto extends Conectar{
         $conectar = parent::Conexion();
         parent::set_names();
 
-        $sql = "UPDATE tm_producto
+        $sql = "UPDATE tm_productos 
                 SET 
                 estado = 0,
-                fech_elim=now()
-                WHERE
+                fech_elim=now() 
+                WHERE 
                 prod_id = ?";
 
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $prod_id);
         $sql->execute();
-        return $resultado = $sql->fetchAll();
+        $resultado = $sql->fetchAll();
+        return $resultado;
     }
 
     public function insertar_producto($prod_nom){
